@@ -1,0 +1,30 @@
+version: '3.6'
+services:
+  mongodb:
+    image: mongo:7.0.2
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - monogo_data:/var/lib/mongodb
+    networks:
+      - backend
+
+  golang-test-app:
+    container_name: golang-test-app
+    restart: always
+    build:
+      context: ./golang-test-app
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+volumes:
+  monogo_data: {}
+
+networks:
+  backend:
