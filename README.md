@@ -22,7 +22,7 @@ docker-compose up --build -d
 # 25
 ![25](results/25.png)
 # 50
-![50](results/75.png)
+![50](results/50.png)
 # 70
 ![70](results/70.png)
 # 100
